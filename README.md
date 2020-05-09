@@ -1,4 +1,4 @@
-## Host Domain
+## Demo
 
 Visit here:
 https://didiermargarido.github.io/post-message/
