@@ -11,7 +11,7 @@
     <form> 
       <input type="text" placeholder="Username" id="username" />
       <input type="password" placeholder="Password" id="password" />
-      <button type="button" onClick="submitForm();">Submit</button>
+      <button type="button" id="submit">Submit</button>
     </form>
 
     <p>Test result from iframe domain: <span id="result"></span></p>
@@ -21,19 +21,16 @@
     <iframe id="iframe" src="./iframe"></iframe>
 
     <script>
-      function submitForm(ev) {
-        // Get form values
+      // Send values by Post Message
+      document.getElementById("submit").addEventListener('click', () => {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
-
-        // Send values by Post Message
-        var object = { username, password };
-        document.getElementById("iframe").contentWindow.postMessage(object, '*');
-      }
+        document.getElementById("iframe").contentWindow.postMessage({ username, password }, '*');
+      });
 
       // Get message from iframe
-      window.addEventListener('message', event => {
-        document.getElementById("result").innerHTML = event.data;
+      window.addEventListener('message', ev => {
+        document.getElementById("result").innerHTML = ev.data;
       });
     </script>
   </body>
