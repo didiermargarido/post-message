@@ -22,14 +22,14 @@
 
     <script>
       // Send values by Post Message
-      document.getElementById("submit").addEventListener('click', () => {
+      document.getElementById("submit").addEventListener('click', function () {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         document.getElementById("iframe").contentWindow.postMessage({ username, password }, '*');
       });
 
       // Get message from iframe
-      window.addEventListener('message', ev => {
+      window.addEventListener("message", function (ev) {
         document.getElementById("result").innerHTML = ev.data;
       });
     </script>

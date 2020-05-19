@@ -16,14 +16,14 @@
 
     <script>
       // Get values from parent window
-      window.addEventListener('message', ev => {
+      window.addEventListener("message", function (ev) {
         for (let [key, value] of Object.entries(ev.data)) {
           document.getElementById(key).innerHTML = value;  
         }
       });
 
       // Send value to parent window
-      document.getElementById("sendTest").addEventListener('click', () => {
+      document.getElementById("sendTest").addEventListener('click', function () {
         window.parent.postMessage(
           'Test Message from Iframe Domain', 
           '*'
