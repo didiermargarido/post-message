@@ -14,12 +14,11 @@
       Send "Test Message" to Host Domain
     </button>
 
-    <script>
+    <script type="text/javascript">
       // Get values from parent window
       window.addEventListener("message", function (ev) {
-        for (let [key, value] of Object.entries(ev.data)) {
-          document.getElementById(key).innerHTML = value;  
-        }
+        document.getElementById("username").innerHTML = ev.data.username;
+        document.getElementById("password").innerHTML = ev.data.password;
       });
 
       // Send value to parent window
