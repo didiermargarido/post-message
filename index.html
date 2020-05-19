@@ -23,9 +23,10 @@
     <script type="text/javascript">
       // Send values by Post Message
       document.getElementById("submit").addEventListener('click', function () {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        document.getElementById("iframe").contentWindow.postMessage({ username, password }, '*');
+        document.getElementById("iframe").contentWindow.postMessage({ 
+          username: document.getElementById("username").value, 
+          password: document.getElementById("password").value
+        }, '*');
       });
 
       // Get message from iframe
